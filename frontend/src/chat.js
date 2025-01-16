@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import io from "socket.io-client";
 import "./Chat.css";
 
-const socket = io("http://localhost:3000"); // Connect to the backend
+const socket = io("https://chat-demo-fqus.vercel.app"); // Connect to the backend
 
 const Chat = () => {
     const [message, setMessage] = useState("");
