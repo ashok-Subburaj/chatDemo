@@ -6,7 +6,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: "http://localhost:3001", // Allow requests from your React app
+        origin: "https://chat-demo-fvu7.vercel.app/", // Allow requests from your React app
         methods: ["GET", "POST"],        // Allowed HTTP methods
         credentials: true                // Allow cookies if needed
     }
