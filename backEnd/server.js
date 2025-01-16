@@ -1,21 +1,23 @@
 const express = require('express');
 const http = require('http');
+const cors = require('cors'); // Import CORS
 const { Server } = require('socket.io');
 
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: "https://chat-demo-fvu7.vercel.app/", // Allow requests from your React app
-        methods: ["GET", "POST"],        // Allowed HTTP methods
-        credentials: true                // Allow cookies if needed
-    }
+        origin: "https://chat-demo-fvu7.vercel.app", // Replace with your client's URL
+        methods: ["GET", "POST"],
+    },
 });
 
 const PORT = 3000;
 
-// Serve static files
-app.use(express.static('public'));
+// Enable CORS
+app.use(cors({
+    origin: "https://chat-demo-fvu7.vercel.app", // Replace with your client's URL
+}));
 
 // Handle socket connection
 io.on('connection', (socket) => {
